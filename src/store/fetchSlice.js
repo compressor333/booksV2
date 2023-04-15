@@ -13,10 +13,8 @@ export const fetchBooks = createAsyncThunk(
         try {
             const res = await fetch(url)
             if (!res.ok) {
-                console.log('hello')
                 throw new Error('no response')
             }
-            console.log(res)
             const data = await res.json()
             return data.items
         } catch (error) {
@@ -40,7 +38,6 @@ const booksSlice = createSlice({
         [fetchBooks.fulfilled]: (state, action) => {
             state.loading = 'loaded'
             state.books = action.payload
-            console.log(state.books)
         },
         [fetchBooks.rejected]: (state, action) => {
             state.error = action.payload
