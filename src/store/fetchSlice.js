@@ -14,7 +14,7 @@ export const fetchBooks = createAsyncThunk(
             const res = await fetch(url)
             if (!res.ok) {
                 console.log('hello')
-                throw new Error('error')
+                throw new Error('no response')
             }
             console.log(res)
             const data = await res.json()

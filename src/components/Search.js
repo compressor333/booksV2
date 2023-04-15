@@ -9,7 +9,13 @@ const Search = () => {
     function onSubmit(q) {
         q.preventDefault()
         console.log(text)
+        if(text === '' ) {
+        console.log('void')
+        dispatch(updateQuery('hemp'))
+
+        } else {
         dispatch(updateQuery(text))
+        }
         console.log(query)
         setText('')
     }

@@ -17,8 +17,9 @@ function App() {
 
   return (
     <div className="container">
+      <h1 className="center">ПОИСК КНИГ</h1>
       <Search />
-      {error ? <h1>{error}</h1> : loading === 'loading' ? <h1>Loading...</h1> : <Items />}
+      {error ? <h1 className="center">{error}</h1> : loading === 'loading' ? <h1 className="center">Loading...</h1> : <Items />}
     </div>
   );
 }
