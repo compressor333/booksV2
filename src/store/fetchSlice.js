@@ -1,10 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const key = 'AIzaSyDL06aBH_O5VUNH94BbDh91mwXlB-0n354'
-// const query = 'js'
-
-
-
 
 export const fetchBooks = createAsyncThunk(
     'books/fetchBooks',

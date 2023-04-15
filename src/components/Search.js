@@ -11,8 +11,7 @@ const Search = () => {
         q.preventDefault()
         console.log(text)
         if(text === '' ) {
-        console.log('void')
-        dispatch(updateQuery('hemp'))
+        dispatch(updateQuery('google'))
         } else {
         dispatch(updateQuery(text))
         }

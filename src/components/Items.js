@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 
 const Items = () => {
   const { books } = useSelector(state => state.booksStore)
-  console.log(books)
   return (
     <div className='cards'>
       {books === undefined ? <h1 className='center'>Error no responce</h1> : books.map(el => {
@@ -14,7 +13,8 @@ const Items = () => {
           title={el.volumeInfo.title}
           authors={el.volumeInfo.authors ? el.volumeInfo.authors[0] : 'no authors'}
         />
-      })}</div>
+      })}
+    </div>
   )
 }
 
