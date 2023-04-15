@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { updateQuery } from "../store/searchSlice"
 import React from "react"
+
 const Search = () => {
     const [text, setText] = React.useState('')
     const dispatch = useDispatch()
@@ -12,11 +13,9 @@ const Search = () => {
         if(text === '' ) {
         console.log('void')
         dispatch(updateQuery('hemp'))
-
         } else {
         dispatch(updateQuery(text))
         }
-        console.log(query)
         setText('')
     }
 
@@ -25,7 +24,6 @@ const Search = () => {
             <form onSubmit={onSubmit} className="form-control">
                 <input
                     type="text"
-                    
                     placeholder="введите поиск"
                     value={text}
                     onChange={(e) => setText(e.target.value)}

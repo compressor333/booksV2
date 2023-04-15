@@ -11,7 +11,11 @@ function App() {
   const query = useSelector(state => state.queryStore.query)
   const fetch = () => dispatch(fetchBooks(query))
 
+  console.log(query)
+
+
   React.useEffect(() => {
+
     fetch()
   }, [query])
 
