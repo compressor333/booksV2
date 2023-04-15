@@ -11,7 +11,7 @@ const Items = () => {
         return <Item
           img={el.volumeInfo.imageLinks ? el.volumeInfo.imageLinks.thumbnail : 'no image'}
           title={el.volumeInfo.title}
-          authors={el.volumeInfo.authors ? el.volumeInfo.authors : 'no authors'}
+          authors={el.volumeInfo.authors ? el.volumeInfo.authors[0] : 'no authors'}
         />
       })}</div>
   )

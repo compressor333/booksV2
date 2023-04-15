@@ -9,11 +9,8 @@ const searchSlice = createSlice({
         updateQuery(state, action) {
             state.query = action.payload
         },
-        clearQuery(state) {
-            state.query = ''
-        }
     }
 })
 
-export const { updateQuery, clearQuery } = searchSlice.actions
+export const { updateQuery } = searchSlice.actions
 export default searchSlice.reducer

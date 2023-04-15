@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux"
-import { updateQuery, clearQuery } from "../store/searchSlice"
+import { updateQuery } from "../store/searchSlice"
 import React from "react"
 const Search = () => {
     const [text, setText] = React.useState('')
@@ -19,12 +19,12 @@ const Search = () => {
             <form onSubmit={onSubmit} className="form-control">
                 <input
                     type="text"
-                    className="form-control"
+                    
                     placeholder="input title"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                 />
-                <input type="submit" value='search books' />
+                <input type="submit" value='search books' className="btn"/>
             </form>
         </div>
     )
