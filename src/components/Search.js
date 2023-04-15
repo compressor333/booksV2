@@ -11,7 +11,7 @@ const Search = () => {
         console.log(text)
         dispatch(updateQuery(text))
         console.log(query)
-        // dispatch(clearQuery())
+        setText('')
     }
 
     return (
