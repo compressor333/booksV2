@@ -17,7 +17,9 @@ function App() {
 
   return (
     <div className="container">
-      <h1 className="center">ПОИСК КНИГ</h1>
+      <div className="header">
+        <div className="center">ПОИСК КНИГ</div>
+      </div>
       <Search />
       {error ? <h1 className="center">{error}</h1> : loading === 'loading' ? <h1 className="center">Loading...</h1> : <Items />}
     </div>

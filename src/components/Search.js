@@ -26,11 +26,11 @@ const Search = () => {
                 <input
                     type="text"
                     
-                    placeholder="input title"
+                    placeholder="введите поиск"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                 />
-                <input type="submit" value='search books' className="btn"/>
+                <input type="submit" value='искать' className="btn"/>
             </form>
         </div>
     )
