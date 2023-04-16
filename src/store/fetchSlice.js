@@ -4,10 +4,8 @@ const key = 'AIzaSyDL06aBH_O5VUNH94BbDh91mwXlB-0n354'
 
 export const fetchBooks = createAsyncThunk(
     'books/fetchBooks',
-    async function (q, { rejectWithValue, dispatch, getState }) {
-        const visible = getState().booksStore.visible
-        console.log(visible + 'from fetch')
-        const url = `https://www.googleapis.com/books/v1/volumes?q=${q}&key=${key}&maxResults=40`
+    async function (query, { rejectWithValue }) {
+        const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${key}&maxResults=40`
         try {
             const res = await fetch(url)
             if (!res.ok) {
@@ -32,9 +30,7 @@ const booksSlice = createSlice({
 
     reducers: {
         Load(state) {
-            state.visible = state.visible +=4
-            console.log('hello')
-            console.log(state.visible)
+            state.visible = state.visible += 4
         }
     },
 

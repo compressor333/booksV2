@@ -5,8 +5,9 @@ import { useSelector } from 'react-redux'
 
 const Items = () => {
   const { books, visible } = useSelector(state => state.booksStore)
+
   return (
-    <div className='cards'>
+    <div className='cards' >
       {books === undefined ? <h1 className='center'>Error no responce</h1> : books.slice(0, visible).map(el => {
         return <Item
           img={el.volumeInfo.imageLinks ? el.volumeInfo.imageLinks.thumbnail : 'no image'}

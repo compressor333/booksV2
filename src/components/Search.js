@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { updateQuery } from "../store/searchSlice"
 import React from "react"
 
@@ -8,7 +8,6 @@ const Search = () => {
 
     function onSubmit(q) {
         q.preventDefault()
-        console.log(text)
         if (text === '') {
             dispatch(updateQuery('google'))
         } else {

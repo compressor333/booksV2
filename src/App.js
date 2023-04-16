@@ -5,20 +5,21 @@ import Items from "./components/Items";
 import Search from "./components/Search";
 import Header from "./components/Header";
 
-
 function App() {
-  const dispatch = useDispatch()
-  const LoadMore = () => dispatch(Load())
-  const { loading, error, visible } = useSelector(state => state.booksStore)
+
+  const { loading, error } = useSelector(state => state.booksStore)
   const query = useSelector(state => state.queryStore.query)
+  const dispatch = useDispatch()
   const fetch = () => dispatch(fetchBooks(query))
+  const LoadMore = () => {dispatch(Load())}
 
   React.useEffect(() => {
+    console.log(query)
     fetch()
-  }, [query, visible])
+  }, [query])
 
   return (
-    <div className="container">
+    <div className="container" >
       <Header />
       <Search />
       {error ? <h1 className="center">{error}</h1> : loading === 'loading' ? <h1 className="center">Loading...</h1> : <Items />}
