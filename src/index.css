@@ -28,7 +28,6 @@ html {
   width: 300px;
 }
 
-
 .container {
   max-width: 1100px;
   margin: auto;
@@ -57,7 +56,6 @@ html {
   margin: 10px 0;
   width: 100%;
   border-radius: 5px;
-  
 }
 
 .header {
@@ -66,8 +64,6 @@ html {
   font-weight: bold;
   text-align: center;
 }
-
-
 
 header img {
   width: 200px;
@@ -116,6 +112,7 @@ input[type='text'] {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
+  text-align: center;
   margin: auto;
 }
 
