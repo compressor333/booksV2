@@ -14,7 +14,6 @@ function App() {
   const LoadMore = () => {dispatch(Load())}
 
   React.useEffect(() => {
-    console.log(query)
     fetch()
   }, [query])
 
