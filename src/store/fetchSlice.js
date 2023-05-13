@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const key = 'AIzaSyDL06aBH_O5VUNH94BbDh91mwXlB-0n354'
+const key = 'AIzaSyA3e6UvWETFHDNct6OlFZPYcl8PJjEkIh8'
 
 export const fetchBooks = createAsyncThunk(
     'books/fetchBooks',
@@ -12,6 +12,7 @@ export const fetchBooks = createAsyncThunk(
                 throw new Error('no response')
             }
             const data = await res.json()
+            console.log(data.items[0].id)
             return data.items
         } catch (error) {
             return rejectWithValue(error.message)
