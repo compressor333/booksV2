@@ -1,10 +1,15 @@
 import React from 'react'
 import Item from './Item'
+import { Load } from "../store/fetchSlice";
+import  book  from '../img/book.jpg'
 
-import { useSelector } from 'react-redux'
+
+import { useSelector, useDispatch } from 'react-redux'
 
 const Items = () => {
   const { books, visible } = useSelector(state => state.booksStore)
+  const dispatch = useDispatch()
+  const LoadMore = () => { dispatch(Load()) }
 
   return (
     <>
@@ -14,13 +19,14 @@ const Items = () => {
             return <Item
               key={el.id}
               id={el.id}
-              img={el.volumeInfo.imageLinks ? el.volumeInfo.imageLinks.thumbnail : 'no image'}
-              title={el.volumeInfo.title}
+              img={el.volumeInfo.imageLinks ? el.volumeInfo.imageLinks.thumbnail : book}
+              title={el.volumeInfo.title.slice(0, 70) + (el.volumeInfo.title.length > 70 ? '...' : '')}
               authors={el.volumeInfo.authors ? el.volumeInfo.authors[0] : 'no authors'}
             />
           })}
         </div>}
-      </>
+        <button className="btn2" onClick={LoadMore}>LOAD MORE</button>
+    </>
   )
 }
 

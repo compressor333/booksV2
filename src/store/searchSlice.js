@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const searchSlice = createSlice({
     name: 'search',
     initialState: {
-        query: 'hemp',
+        query: 'Пушкин',
     },
     reducers: {
         updateQuery(state, action) {

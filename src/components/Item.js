@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-
-
 const Item = ({ title, img, authors, id }) => {
   return (
     <Link key={id} to={`/details/${id}`}>

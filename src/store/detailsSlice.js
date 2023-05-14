@@ -1,14 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 
+const key = 'AIzaSyA3e6UvWETFHDNct6OlFZPYcl8PJjEkIh8'
+
 
 export const bookDetails = createAsyncThunk(
     'books/bookDetails',
     async function(id, {rejectWithValue}) {
-        const url = `https://www.googleapis.com/books/v1/volumes/${id}`
+        const url = `https://www.googleapis.com/books/v1/volumes/${id}?key=${key}`
         try {
            const res = await fetch(url)
            if(!res.ok) {
-            throw new Error('no responce')
+            throw new Error('no responce from Details')
            }
            const data = await res.json()
            return data
@@ -22,22 +24,22 @@ const detailsSlice = createSlice({
     name: 'detailsState',
     initialState: {
         details: [],
-        loading: null,
-        error: null
+        loadingDetails: null,
+        errorDetails: null
     },
 
     extraReducers: {
         [bookDetails.pending]: (state) => {
-            state.loading = 'loading'
-            state.error = null
+            state.loadingDetails = 'loading'
+            state.errorDetails = null
         },
         [bookDetails.fulfilled]: (state, action) => {
-            state.loading = 'loaded'
+            state.loadingDetails = 'loaded'
             state.details = action.payload
         },
         [bookDetails.rejected]: (state, action) => {
-            state.error = action.payload
-            state.loading = 'rejected'
+            state.errorDetails = action.payload
+            state.loadingDetails = 'rejected'
         }
     }
 }) 

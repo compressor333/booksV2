@@ -12,7 +12,6 @@ export const fetchBooks = createAsyncThunk(
                 throw new Error('no response')
             }
             const data = await res.json()
-            console.log(data.items[0].id)
             return data.items
         } catch (error) {
             return rejectWithValue(error.message)
