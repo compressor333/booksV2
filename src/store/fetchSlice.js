@@ -4,8 +4,10 @@ const key = 'AIzaSyA3e6UvWETFHDNct6OlFZPYcl8PJjEkIh8'
 
 export const fetchBooks = createAsyncThunk(
     'books/fetchBooks',
-    async function (query, { rejectWithValue }) {
-        const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${key}&maxResults=40`
+    async function ({query, category, order}, { rejectWithValue }) {
+        const url = `https://www.googleapis.com/books/v1/volumes?q=${query}+subject:${category}&orderBy=${order}&key=${key}&maxResults=40`
+        console.log(url)
+        console.log(category + 'hey')
         try {
             const res = await fetch(url)
             if (!res.ok) {

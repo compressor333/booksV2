@@ -8,17 +8,16 @@ import Header from "./components/Header";
 import { Route, Routes } from "react-router-dom";
 import Loader from "./components/Loader";
 
-
 function App() {
 
   const { loading, error } = useSelector(state => state.booksStore)
-  const query = useSelector(state => state.queryStore.query)
+  const { query, category, order } = useSelector(state => state.queryStore)
   const dispatch = useDispatch()
-  const fetch = () => dispatch(fetchBooks(query))
+  const fetch = () => dispatch(fetchBooks({query, category, order}))
 
   React.useEffect(() => {
     fetch()
-  }, [query])
+  }, [query, category, order])
 
   return (
     <div className="container" >

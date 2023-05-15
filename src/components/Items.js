@@ -3,7 +3,6 @@ import Item from './Item'
 import { Load } from "../store/fetchSlice";
 import  book  from '../img/book.jpg'
 
-
 import { useSelector, useDispatch } from 'react-redux'
 
 const Items = () => {
@@ -11,11 +10,17 @@ const Items = () => {
   const dispatch = useDispatch()
   const LoadMore = () => { dispatch(Load()) }
 
+  // Assuming you have an array of search results called 'books'
+const uniqueBooks = books?.filter((book, index, self) => {
+  // Filter the array based on the uniqueness of the 'id' property
+  return index === self.findIndex((b) => b.id === book.id);
+});
+
   return (
     <>
-      {books === undefined ? <h1 className='center'>Error no responce</h1> :
+      {uniqueBooks === undefined ? <h1 className='center'>Error no responce</h1> :
         <div className='cards' >
-          {books.slice(0, visible).map(el => {
+          {uniqueBooks.slice(0, visible).map(el => {
             return <Item
               key={el.id}
               id={el.id}
